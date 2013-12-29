@@ -25,8 +25,16 @@ $(call inherit-product, device/asus/tilapia/device.mk)
 #$(call inherit-product, device/sample/products/backup_overlay.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
+# Get the long list of APNs
+$(call inherit-product, vendor/cna/configs/apns.mk)
+
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := full_tilapia
 PRODUCT_DEVICE := tilapia
-PRODUCT_BRAND := Android
-PRODUCT_MODEL := AOSP on Tilapia
+PRODUCT_BRAND := google
+PRODUCT_MODEL := Nexus 7
+PRODUCT_MANUFACTURER := ASUS
+PRODUCT_RESTRICT_VENDOR_FILES := false
+
+#Set build fingerprint / ID / Product Name ect.
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=nakasig BUILD_FINGERPRINT="google/nakasig/tilapia:4.4/KRT16S/920375:user/release-keys" PRIVATE_BUILD_DESC="nakasig-user 4.4 KRT16S 920375 release-keys"
